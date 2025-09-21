@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_students_by_course" model="ir.actions.act_window">
+        <field name="name">Students by Course</field>
+        <field name="res_model">student.management.students</field>
+        <field name="view_mode">tree</field>
+        <!-- default search filter: group by Courses -->
+        <field name="context">{'group_by':'course_ids'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                View all students enrolled in each course.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_management_root" name="Student Management" action="action_students_by_course"/>
+
+
+    <!-- <record id="action_student_tree" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student.management.students</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new student
+            </p>
+        </field>
+    </record> -->
+
+    <menuitem id="students" name="Student Info" parent="menu_management_root" action="action_student_tree" />
+
+    <!-- <record id="action_course_tree" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">student.management.courses</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new course
+            </p>
+        </field>
+    </record> -->
+
+    <menuitem id="courses" name="Course Info" parent="menu_management_root" action="action_course_tree" />
+</odoo>
